@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">AndroidPractice</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="toolbar_title">タイトル(練習中)</string>
+    <string name="toolbar_subtitle1">これはツールバー</string>
+    <string name="toolbar_subtitle2">詳細画面ダヨー</string>
+    <string name="dialog_title">これはダイアログ</string>
+    <string name="dialog_msg">選択した人の詳細を表示するよ</string>
+    <string name="dialog_btn_ok">はい</string>
+    <string name="dialog_btn_ng">嫌だ</string>
+    <string name="dialog_ok_toast">表示したよ（*￣^￣）Ｖ</string>
+    <string name="dialog_ng_toast">表示をやめたよ(´・ω・`)</string>
+    <string name="detail">詳細画面</string>
+</resources>
