@@ -12,4 +12,8 @@
     <string name="dialog_ok_toast">表示したよ（*￣^￣）Ｖ</string>
     <string name="dialog_ng_toast">表示をやめたよ(´・ω・`)</string>
     <string name="detail">詳細画面</string>
+    <string name="status_online">学内にいる</string>
+    <string name="status_free">今暇</string>
+    <string name="status_busy">忙しい</string>
+    <string name="status_offline">学内にいない</string>
 </resources>

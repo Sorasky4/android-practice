@@ -27,29 +27,19 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val lvFriend = findViewById<ListView>(R.id.lvFriend)
-        val friendsList: MutableList<MutableMap<String, String>> = mutableListOf()
-        var friend = mutableMapOf("name" to "そら", "location" to "講堂")
+        val friendsList: MutableList<MutableMap<String, Any>> = mutableListOf()
+        var friend: MutableMap<String, Any> = mutableMapOf("name" to "そら", "location" to "講堂", "status" to getString(R.string.status_online), "icon" to R.drawable.sora_icon)
         friendsList.add(friend)
-        friend = mutableMapOf("name" to "maki", "location" to "大講義室")
+        friend = mutableMapOf("name" to "maki", "location" to "大講義室", "status" to getString(R.string.status_free))
         friendsList.add(friend)
-        friend = mutableMapOf("name" to "あみみ", "location" to "エレ工")
+        friend = mutableMapOf("name" to "あみみ", "location" to "エレ工", "status" to getString(R.string.status_busy))
         friendsList.add(friend)
-        friend = mutableMapOf("name" to "t4t5u0", "location" to "595教室")
+        friend = mutableMapOf("name" to "t4t5u0", "location" to "595教室", "status" to getString(R.string.status_offline))
         friendsList.add(friend)
-
-        val from = arrayOf("name", "location")
-        val to = intArrayOf(R.id.friendName, R.id.friendLocation)
+        val from = arrayOf("name", "location", "status", "icon")
+        val to = intArrayOf(R.id.friendName, R.id.friendLocation, R.id.status, R.id.icon)
         val adapter = SimpleAdapter(applicationContext, friendsList, R.layout.inline_list_item_2, from, to)
         lvFriend.adapter = adapter
-
-        lvFriend.setOnItemClickListener(object: AdapterView.OnItemClickListener{
-            override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                // val item = (view as TextView).text.toString()
-                val item = parent.getItemAtPosition(position) as String
-                val show = "${item}を選択しました"
-                Toast.makeText(applicationContext, show, Toast.LENGTH_LONG).show()
-            }
-        })
         // リストタップのリスナクラス登録
         lvFriend.onItemClickListener = ListItemClickListener()
     }

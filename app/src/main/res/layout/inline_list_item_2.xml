@@ -4,16 +4,30 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@id/friendName"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/sora_icon" />
+
     <TextView
         android:id="@+id/friendName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="8dp"
+        android:text="Sora"
         android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@id/friendLocation"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/friendLocation"/>
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/friendLocation"
@@ -21,8 +35,20 @@
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:textSize="18sp"
+        android:text="595"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/friendName"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="busy"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/friendName" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
