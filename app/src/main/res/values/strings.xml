@@ -16,6 +16,7 @@
     <string name="status_free">今暇</string>
     <string name="status_busy">忙しい</string>
     <string name="status_offline">学内にいない</string>
+    <string name="friend_list_options_all">全員</string>
     <string name="friend_list_options_online">学内にいる人</string>
     <string name="friend_list_options_free">今暇な人</string>
     <string name="friend_list_options_busy">忙しい人</string>

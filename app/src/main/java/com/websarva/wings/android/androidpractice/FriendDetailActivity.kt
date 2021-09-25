@@ -19,6 +19,8 @@ class FriendDetailActivity : AppCompatActivity() {
         val tvFriendLocation = findViewById<TextView>(R.id.tvFriendLocation)
         tvFriendName.text = name
         tvFriendLocation.text = location
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
