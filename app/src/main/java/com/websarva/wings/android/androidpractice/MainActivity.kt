@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class MainActivity : AppCompatActivity() {
+    var _friendList: MutableList<MutableMap<String, Any>>? = null
+    val FROM = arrayOf("name", "location", "status", "icon")
+    val TO = intArrayOf(R.id.friendName, R.id.friendLocation, R.id.status, R.id.icon)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -15,19 +18,22 @@ class MainActivity : AppCompatActivity() {
         WalkTroughActivity.showIfNeeded(this, savedInstanceState)
         // WalkTroughActivity.showForcibly(this)
 
+        fun createFriendList(): MutableList<MutableMap<String, Any>> {
+            val friendList: MutableList<MutableMap<String, Any>> = mutableListOf()
+            var friend: MutableMap<String, Any> = mutableMapOf("name" to "そら", "location" to "講堂", "status" to getString(R.string.status_online), "icon" to R.drawable.sora_icon)
+            friendList.add(friend)
+            friend = mutableMapOf("name" to "maki", "location" to "大講義室", "status" to getString(R.string.status_free))
+            friendList.add(friend)
+            friend = mutableMapOf("name" to "あみみ", "location" to "エレ工", "status" to getString(R.string.status_busy))
+            friendList.add(friend)
+            friend = mutableMapOf("name" to "t4t5u0", "location" to "595教室", "status" to getString(R.string.status_offline))
+            friendList.add(friend)
+            return friendList
+        }
+
+        _friendList = createFriendList()
         val lvFriend = findViewById<ListView>(R.id.lvFriend)
-        val friendsList: MutableList<MutableMap<String, Any>> = mutableListOf()
-        var friend: MutableMap<String, Any> = mutableMapOf("name" to "そら", "location" to "講堂", "status" to getString(R.string.status_online), "icon" to R.drawable.sora_icon)
-        friendsList.add(friend)
-        friend = mutableMapOf("name" to "maki", "location" to "大講義室", "status" to getString(R.string.status_free))
-        friendsList.add(friend)
-        friend = mutableMapOf("name" to "あみみ", "location" to "エレ工", "status" to getString(R.string.status_busy))
-        friendsList.add(friend)
-        friend = mutableMapOf("name" to "t4t5u0", "location" to "595教室", "status" to getString(R.string.status_offline))
-        friendsList.add(friend)
-        val from = arrayOf("name", "location", "status", "icon")
-        val to = intArrayOf(R.id.friendName, R.id.friendLocation, R.id.status, R.id.icon)
-        val adapter = SimpleAdapter(applicationContext, friendsList, R.layout.inline_list_item_2, from, to)
+        val adapter = SimpleAdapter(applicationContext, _friendList, R.layout.inline_list_item_2, FROM, TO)
         lvFriend.adapter = adapter
         // リストタップのリスナクラス登録
         lvFriend.onItemClickListener = ListItemClickListener()
