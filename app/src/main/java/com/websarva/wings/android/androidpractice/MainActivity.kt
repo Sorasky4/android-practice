@@ -1,6 +1,8 @@
 package com.websarva.wings.android.androidpractice
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -26,6 +28,8 @@ class MainActivity : AppCompatActivity() {
         lvFriend.adapter = adapter
         // リストタップのリスナクラス登録
         lvFriend.onItemClickListener = ListItemClickListener()
+        // コンテキストメニューを表示するビューを登録
+        registerForContextMenu(lvFriend)
     }
 
     private fun createFriendList(): MutableList<MutableMap<String, Any>> {
@@ -77,6 +81,21 @@ class MainActivity : AppCompatActivity() {
         return offlineFriends
     }
 
+    // contextメニューで詳細を表示がタップされたときの処理
+    private fun showDetail(friend: MutableMap<String, Any>) {
+        val name = friend["name"] as String
+        val location = friend["location"] as String
+        val status = friend["status"] as String
+        val icon = friend["icon"] as Int
+
+        val intent = Intent(applicationContext, FriendDetailActivity::class.java)
+        intent.putExtra("name", name)
+        intent.putExtra("location", location)
+        intent.putExtra("status", status)
+        intent.putExtra("icon", icon)
+        startActivity(intent)
+    }
+
     // リストがタップされたときの処理が記述されたメンバクラス
     private inner class ListItemClickListener: AdapterView.OnItemClickListener{
         override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
@@ -117,5 +136,30 @@ class MainActivity : AppCompatActivity() {
         val adapter = SimpleAdapter(applicationContext, _friendList, R.layout.inline_list_item_2, FROM, TO)
         lvFriend.adapter = adapter
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateContextMenu(menu: ContextMenu, view: View, menuInfo: ContextMenu.ContextMenuInfo) {
+        // 親クラスの同名メソッドの呼び出し
+        super.onCreateContextMenu(menu, view, menuInfo)
+        // コンテキストメニュー用xmlファイルをインフレート
+        menuInflater.inflate(R.menu.menu_context_friend_list, menu)
+        // コンテキストメニューのヘッダーファイルを設定
+        menu.setHeaderTitle(R.string.friend_list_context_header)
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        val info = item.menuInfo as AdapterView.AdapterContextMenuInfo
+        val listPosition = info.position
+        val friend = _friendList!![listPosition]
+
+        when(item.itemId) {
+            R.id.friendListContextStay -> {
+                val stayTime = "57分"
+                Toast.makeText(applicationContext, stayTime, Toast.LENGTH_LONG).show()
+            }
+            R.id.friendListContextDetail ->
+                showDetail(friend)
+        }
+        return super.onContextItemSelected(item)
     }
 }

@@ -21,4 +21,7 @@
     <string name="friend_list_options_free">今暇な人</string>
     <string name="friend_list_options_busy">忙しい人</string>
     <string name="friend_list_options_offline">学内にいない人</string>
+    <string name="friend_list_context_detail">詳細を表示</string>
+    <string name="friend_list_context_stay">滞在時間を表示</string>
+    <string name="friend_list_context_header">何が見たい？</string>
 </resources>
