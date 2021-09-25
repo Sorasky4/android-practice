@@ -1,11 +1,9 @@
 package com.websarva.wings.android.androidpractice
 
-import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import android.widget.*
-import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -14,17 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // WalkTroughActivity.showIfNeeded(this, savedInstanceState)
-        WalkTroughActivity.showForcibly(this)
-
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setLogo(R.mipmap.ic_launcher)
-        toolbar.setTitle(R.string.toolbar_title)
-        toolbar.setTitleTextColor(Color.WHITE)
-        toolbar.setSubtitle(R.string.toolbar_subtitle1)
-        toolbar.setSubtitleTextColor(Color.LTGRAY)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        WalkTroughActivity.showIfNeeded(this, savedInstanceState)
+        // WalkTroughActivity.showForcibly(this)
 
         val lvFriend = findViewById<ListView>(R.id.lvFriend)
         val friendsList: MutableList<MutableMap<String, Any>> = mutableListOf()
@@ -58,5 +47,12 @@ class MainActivity : AppCompatActivity() {
             dialogFragment.arguments = args
             dialogFragment.show(supportFragmentManager, "DisplayConfirmDialogFragment")
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        // オプションメニュー用xmlファイルをインフレート
+        menuInflater.inflate(R.menu.menu_options_friend_list, menu)
+        // 親クラスの同名メソッドを呼び出し、その戻り値をリターン
+        return super.onCreateOptionsMenu(menu)
     }
 }

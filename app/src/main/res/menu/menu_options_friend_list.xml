@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/friendListOptionOnline"
+        app:showAsAction="never"
+        android:title="@string/friend_list_options_online" />
+    <item
+        android:id="@+id/friendListOptionBusy"
+        app:showAsAction="never"
+        android:title="@string/friend_list_options_busy" />
+    <item
+        android:id="@+id/friendListOptionFree"
+        app:showAsAction="never"
+        android:title="@string/friend_list_options_free" />
+    <item
+        android:id="@+id/friendListOptionOffline"
+        app:showAsAction="never"
+        android:title="@string/friend_list_options_online" />
+</menu>

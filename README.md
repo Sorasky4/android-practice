@@ -1,3 +1,2 @@
-"# android-practice" 
-簡易的なウォークスルーを実装
-要素を4つもったListViewを表示し、クリックするとダイアログを表示し、PositiveButtonをクリックすることで要素を持ったままアクティビティ遷移する
+# android-practice
+

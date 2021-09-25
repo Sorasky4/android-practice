@@ -13,15 +13,6 @@ class FriendDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friend_detail)
 
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
-        toolbar.setLogo(R.mipmap.ic_launcher)
-        toolbar.setTitle(R.string.toolbar_title)
-        toolbar.setTitleTextColor(Color.WHITE)
-        toolbar.setSubtitle(R.string.toolbar_subtitle2)
-        toolbar.setSubtitleTextColor(Color.LTGRAY)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         val name = intent.getStringExtra("name")
         val location = intent.getStringExtra("location")
         val tvFriendName = findViewById<TextView>(R.id.tvFriendName)
