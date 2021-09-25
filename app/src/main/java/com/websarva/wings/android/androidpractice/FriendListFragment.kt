@@ -32,7 +32,7 @@ class FriendListFragment : Fragment() {
         // アダプターの登録
         lvFriend.adapter = adapter
         // リストタップのリスナ登録
-        // lvFriend.onItemClickListener = ListItemClickListener()
+        lvFriend.onItemClickListener = ListItemClickListener()
         // インフレートされた画面を戻り値として返す
         return view
     }
@@ -48,61 +48,6 @@ class FriendListFragment : Fragment() {
         friend = mutableMapOf("name" to "t4t5u0", "location" to "595教室", "status" to getString(R.string.status_offline))
         friendList.add(friend)
         return friendList
-    }
-
-    private fun createFriendListOnline(): MutableList<MutableMap<String, Any>> {
-        val friendList: MutableList<MutableMap<String, Any>> = createFriendList()
-        val onlineFriends: MutableList<MutableMap<String, Any>> = mutableListOf()
-        for (item in friendList) {
-            if(item["status"] == getString(R.string.status_online)) onlineFriends.add(item)
-        }
-        return onlineFriends
-    }
-
-    private fun createFriendListBusy(): MutableList<MutableMap<String, Any>> {
-        val friendList: MutableList<MutableMap<String, Any>> = createFriendList()
-        val busyFriends: MutableList<MutableMap<String, Any>> = mutableListOf()
-        for (item in friendList) {
-            if(item["status"] == getString(R.string.status_busy)) busyFriends.add(item)
-        }
-        return busyFriends
-    }
-
-    private fun createFriendListFree(): MutableList<MutableMap<String, Any>> {
-        val friendList: MutableList<MutableMap<String, Any>> = createFriendList()
-        val freeFriends: MutableList<MutableMap<String, Any>> = mutableListOf()
-        for (item in friendList) {
-            if(item["status"] == getString(R.string.status_free)) freeFriends.add(item)
-        }
-        return freeFriends
-    }
-
-    private fun createFriendListOffline(): MutableList<MutableMap<String, Any>> {
-        val friendList: MutableList<MutableMap<String, Any>> = createFriendList()
-        val offlineFriends: MutableList<MutableMap<String, Any>> = mutableListOf()
-        for (item in friendList) {
-            if(item["status"] == getString(R.string.status_offline)) offlineFriends.add(item)
-        }
-        return offlineFriends
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.friendListOptionAll ->
-                _friendList = createFriendList()
-            R.id.friendListOptionOnline ->
-                _friendList = createFriendListOnline()
-            R.id.friendListOptionBusy ->
-                _friendList = createFriendListBusy()
-            R.id.friendListOptionFree ->
-                _friendList = createFriendListFree()
-            R.id.friendListOptionOffline ->
-                _friendList = createFriendListOffline()
-        }
-        val lvFriend = view?.findViewById<ListView>(R.id.lvFriends)
-        val adapter = SimpleAdapter(activity, _friendList, R.layout.inline_list_item, FROM, TO)
-        lvFriend?.adapter = adapter
-        return super.onOptionsItemSelected(item)
     }
 
     // リストアイテムがタップされたときの処理

@@ -1,27 +1,9 @@
 <resources>
     <string name="app_name">AndroidPractice</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="toolbar_title">タイトル(練習中)</string>
-    <string name="toolbar_subtitle1">これはツールバー</string>
-    <string name="toolbar_subtitle2">詳細画面ダヨー</string>
-    <string name="dialog_title">これはダイアログ</string>
-    <string name="dialog_msg">選択した人の詳細を表示するよ</string>
-    <string name="dialog_btn_ok">はい</string>
-    <string name="dialog_btn_ng">嫌だ</string>
-    <string name="dialog_ok_toast">表示したよ（*￣^￣）Ｖ</string>
-    <string name="dialog_ng_toast">表示をやめたよ(´・ω・`)</string>
     <string name="detail">詳細画面</string>
     <string name="status_online">学内にいる</string>
     <string name="status_free">今暇</string>
     <string name="status_busy">忙しい</string>
     <string name="status_offline">学内にいない</string>
-    <string name="friend_list_options_all">全員</string>
-    <string name="friend_list_options_online">学内にいる人</string>
-    <string name="friend_list_options_free">今暇な人</string>
-    <string name="friend_list_options_busy">忙しい人</string>
-    <string name="friend_list_options_offline">学内にいない人</string>
-    <string name="friend_list_context_detail">詳細を表示</string>
-    <string name="friend_list_context_stay">滞在時間を表示</string>
-    <string name="friend_list_context_header">何が見たい？</string>
+    <string name="bt_friend_back">友人一覧に戻る</string>
 </resources>

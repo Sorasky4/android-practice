@@ -5,51 +5,49 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 
-/**
- * A simple [Fragment] subclass.
- * Use the [FriendDatailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FriendDatailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_friend_detail, container, false)
+        // フラグメントで表示する画面をxmlファイルからインフレートする
+        val view = inflater.inflate(R.layout.fragment_friend_detail, container, false)
+        // 所属アクティビティからインテントを取得
+        val intent = activity?.intent
+        // インテントから引き継ぎデータをまとめたもの(Bundleオブジェクト)を取得
+        val extras = intent?.extras
+        // 名前, 居場所, ステータスを取得
+        val name = extras?.getString("name")
+        val location = extras?.getString("location")
+        val status = extras?.getString("status")
+        // アイコンを取得
+        val icon = extras?.getInt("icon", R.drawable.ic_baseline_mood_24)
+        // 名前, 居場所, ステータスを表示させるTextView取得
+        val tvFriendName = view.findViewById<TextView>(R.id.tvFriendName)
+        val tvFriendLocation = view.findViewById<TextView>(R.id.tvFriendLocation)
+        val tvFriendStatus = view.findViewById<TextView>(R.id.tvFriendStatus)
+        // アイコンを表示させるImageViewを取得
+        val ivFriendIcon = view.findViewById<ImageView>(R.id.ivFriendIcon)
+        // TextViewに名前, 居場所, ステータスを表示
+        tvFriendName.text = name
+        tvFriendLocation.text = location
+        tvFriendStatus.text = status
+        // ImageViewにアイコンを表示
+        ivFriendIcon.setImageResource(icon!!)
+        // 戻るボタンを取得
+        val btBackButton = view.findViewById<Button>(R.id.btBackButton)
+        // 戻るボタンにリスナを登録
+        btBackButton.setOnClickListener(ButtonClickListener())
+        // インフレートされた画面を戻り値として返す
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FriendDatailFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic fun newInstance(param1: String, param2: String) =
-                FriendDatailFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
+    // ボタンが押されたときの処理が記述されたメンバクラス
+    private inner class ButtonClickListener: View.OnClickListener{
+        override fun onClick(view: View) {
+            activity?.finish()
+        }
     }
 }

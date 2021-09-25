@@ -20,20 +20,4 @@ class MainActivity : AppCompatActivity() {
         WalkTroughActivity.showIfNeeded(this, savedInstanceState)
         // WalkTroughActivity.showForcibly(this)
     }
-
-    // リストがタップされたときの処理が記述されたメンバクラス
-    private inner class ListItemClickListener: AdapterView.OnItemClickListener{
-        override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-            val item = parent.getItemAtPosition(position) as MutableMap<String, String>
-            val name = item["name"]
-            val location = item["location"]
-            // ダイアログフラグメントオブジェクトの生成
-            val dialogFragment = DisplayConfirmDialogFragment()
-            val args = Bundle()
-            args.putString("name", name)
-            args.putString("location", location)
-            dialogFragment.arguments = args
-            dialogFragment.show(supportFragmentManager, "DisplayConfirmDialogFragment")
-        }
-    }
 }
