@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val friendList: MutableList<MutableMap<String, Any>> = mutableListOf()
         var friend: MutableMap<String, Any> = mutableMapOf("name" to "そら", "location" to "講堂", "status" to getString(R.string.status_online), "icon" to R.drawable.sora_icon)
         friendList.add(friend)
-        friend = mutableMapOf("name" to "maki", "location" to "大講義室", "status" to getString(R.string.status_free))
+        friend = mutableMapOf("name" to "maki", "location" to "大講義室", "status" to getString(R.string.status_free), "icon" to R.drawable.ic_baseline_self_improvement_24)
         friendList.add(friend)
         friend = mutableMapOf("name" to "あみみ", "location" to "エレ工", "status" to getString(R.string.status_busy))
         friendList.add(friend)
@@ -86,7 +86,8 @@ class MainActivity : AppCompatActivity() {
         val name = friend["name"] as String
         val location = friend["location"] as String
         val status = friend["status"] as String
-        val icon = friend["icon"] as Int
+        var icon: Int? = null
+        if (friend.containsKey("icon")) icon = friend["icon"] as Int
 
         val intent = Intent(applicationContext, FriendDetailActivity::class.java)
         intent.putExtra("name", name)

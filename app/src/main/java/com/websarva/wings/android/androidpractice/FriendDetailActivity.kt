@@ -17,7 +17,7 @@ class FriendDetailActivity : AppCompatActivity() {
         val name = intent.getStringExtra("name")
         val location = intent.getStringExtra("location")
         val status: String? = intent.getStringExtra("status")
-        val icon = intent.getIntExtra("icon", R.drawable.ic_baseline_person_pin_circle_24)
+        val icon = intent.getIntExtra("icon", R.drawable.ic_baseline_mood_24)
         val tvFriendName = findViewById<TextView>(R.id.tvFriendName)
         val tvFriendLocation = findViewById<TextView>(R.id.tvFriendLocation)
         val tvFriendStatus = findViewById<TextView>(R.id.tvFriendStatus)
