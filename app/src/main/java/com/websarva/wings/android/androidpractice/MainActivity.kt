@@ -17,8 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //WalkTroughActivity.showIfNeeded(this, savedInstanceState)
-        WalkTroughActivity.showForcibly(this)
+        WalkTroughActivity.showIfNeeded(this, savedInstanceState)
+        // WalkTroughActivity.showForcibly(this)
     }
 
     // リストがタップされたときの処理が記述されたメンバクラス
