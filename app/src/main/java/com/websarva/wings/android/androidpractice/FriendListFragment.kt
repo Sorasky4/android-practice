@@ -21,8 +21,12 @@ class FriendListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // フラグメントで表示する画面をxmlファイルからインフレートする
-        val view = inflater.inflate(R.layout.fragment_friend_list, container, false)
+        // フラグメントで表示する画面をxmlファイルからインフレートして返す
+        return inflater.inflate(R.layout.fragment_friend_list, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         // 画面部品ListViewを取得
         val lvFriend = view.findViewById<ListView>(R.id.lvFriends)
         // SimpleAdapterで使用するMutableListオブジェクトにデータをいれる
@@ -33,8 +37,6 @@ class FriendListFragment : Fragment() {
         lvFriend.adapter = adapter
         // リストタップのリスナ登録
         lvFriend.onItemClickListener = ListItemClickListener()
-        // インフレートされた画面を戻り値として返す
-        return view
     }
 
     private fun createFriendList(): MutableList<MutableMap<String, Any>> {
@@ -58,12 +60,13 @@ class FriendListFragment : Fragment() {
         var icon: Int? = null
         if (friend.containsKey("icon")) icon = friend["icon"] as Int
 
-        val intent = Intent(activity, FriendDetailActivity::class.java)
-        intent.putExtra("name", name)
-        intent.putExtra("location", location)
-        intent.putExtra("status", status)
-        intent.putExtra("icon", icon)
-        startActivity(intent)
+        Intent(activity, FriendDetailActivity::class.java).apply {
+            putExtra("name", name)
+            putExtra("location", location)
+            putExtra("status", status)
+            putExtra("icon", icon)
+            startActivity(this)
+        }
     }
 
     private inner class ListItemClickListener: AdapterView.OnItemClickListener{

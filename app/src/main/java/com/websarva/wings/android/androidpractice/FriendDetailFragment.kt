@@ -9,39 +9,41 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 
-class FriendDatailFragment : Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // フラグメントで表示する画面をxmlファイルからインフレートする
-        val view = inflater.inflate(R.layout.fragment_friend_detail, container, false)
+class FriendDetailFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // フラグメントで表示する画面をxmlファイルからインフレートし、返す
+        return inflater.inflate(R.layout.fragment_friend_detail, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         // 所属アクティビティからインテントを取得
         val intent = activity?.intent
         // インテントから引き継ぎデータをまとめたもの(Bundleオブジェクト)を取得
         val extras = intent?.extras
-        // 名前, 居場所, ステータスを取得
-        val name = extras?.getString("name")
-        val location = extras?.getString("location")
-        val status = extras?.getString("status")
-        // アイコンを取得
-        val icon = extras?.getInt("icon", R.drawable.ic_baseline_mood_24)
-        // 名前, 居場所, ステータスを表示させるTextView取得
-        val tvFriendName = view.findViewById<TextView>(R.id.tvFriendName)
-        val tvFriendLocation = view.findViewById<TextView>(R.id.tvFriendLocation)
-        val tvFriendStatus = view.findViewById<TextView>(R.id.tvFriendStatus)
-        // アイコンを表示させるImageViewを取得
-        val ivFriendIcon = view.findViewById<ImageView>(R.id.ivFriendIcon)
-        // TextViewに名前, 居場所, ステータスを表示
-        tvFriendName.text = name
-        tvFriendLocation.text = location
-        tvFriendStatus.text = status
-        // ImageViewにアイコンを表示
-        ivFriendIcon.setImageResource(icon!!)
-        // 戻るボタンを取得
-        val btBackButton = view.findViewById<Button>(R.id.btBackButton)
-        // 戻るボタンにリスナを登録
-        btBackButton.setOnClickListener(ButtonClickListener())
-        // インフレートされた画面を戻り値として返す
-        return view
+        // 名前, 居場所, ステータス, アイコンを表示させるTextView, ImageViewを取得し
+        // TextView, ImageViewに名前, 居場所, ステータス, アイコンを表示
+        view.apply {
+            findViewById<TextView>(R.id.tvFriendName).apply {
+                text = extras?.getString("name")
+            }
+            findViewById<TextView>(R.id.tvFriendLocation).apply {
+                text = extras?.getString("location")
+            }
+            findViewById<TextView>(R.id.tvFriendStatus).apply {
+                text = extras?.getString("status")
+            }
+            findViewById<ImageView>(R.id.ivFriendIcon).apply {
+                setImageResource(extras?.getInt("icon", R.drawable.ic_baseline_mood_24)!!)
+            }
+        }
+        // 戻るボタンを取得してリスナを登録
+        view.findViewById<Button>(R.id.btBackButton).apply {
+            setOnClickListener(ButtonClickListener())
+        }
     }
 
     // ボタンが押されたときの処理が記述されたメンバクラス

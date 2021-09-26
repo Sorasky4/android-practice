@@ -13,20 +13,6 @@ class FriendDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friend_detail)
-
-        val name = intent.getStringExtra("name")
-        val location = intent.getStringExtra("location")
-        val status: String? = intent.getStringExtra("status")
-        val icon = intent.getIntExtra("icon", R.drawable.ic_baseline_mood_24)
-        val tvFriendName = findViewById<TextView>(R.id.tvFriendName)
-        val tvFriendLocation = findViewById<TextView>(R.id.tvFriendLocation)
-        val tvFriendStatus = findViewById<TextView>(R.id.tvFriendStatus)
-        val tvFriendIcon = findViewById<ImageView>(R.id.ivFriendIcon)
-        tvFriendName.text = name
-        tvFriendLocation.text = location
-        tvFriendStatus.text = status
-        tvFriendIcon?.setImageResource(icon)
-
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
