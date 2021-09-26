@@ -1,13 +1,12 @@
 package com.websarva.wings.android.androidpractice
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 
 class FriendDetailFragment : Fragment() {
     override fun onCreateView(
@@ -40,10 +39,9 @@ class FriendDetailFragment : Fragment() {
                 setImageResource(extras?.getInt("icon", R.drawable.ic_baseline_mood_24)!!)
             }
         }
-        // 戻るボタンを取得してリスナを登録
-        view.findViewById<Button>(R.id.btBackButton).apply {
-            setOnClickListener(ButtonClickListener())
-        }
+        // actionbarとバックボタンを有効にする
+        setHasOptionsMenu(true)
+        setupBackButton()
     }
 
     // ボタンが押されたときの処理が記述されたメンバクラス
@@ -51,5 +49,20 @@ class FriendDetailFragment : Fragment() {
         override fun onClick(view: View) {
             activity?.finish()
         }
+    }
+
+    // アクションバーのバックボタンを表示するメソッド
+    private fun setupBackButton() {
+        if (activity is AppCompatActivity) {
+            (activity as AppCompatActivity?)?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        }
+    }
+
+    // actionbarのバックボタンが押されたときの処理
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            activity?.finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
