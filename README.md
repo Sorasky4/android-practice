@@ -1,2 +1,2 @@
 # android-practice
-フラグメントによる画面と遷移を実装
+Android OSに備わっているSQLiteデータベースを用いたデータ処理を実装
