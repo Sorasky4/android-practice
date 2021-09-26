@@ -23,20 +23,27 @@ class FriendDetailFragment : Fragment() {
         val intent = activity?.intent
         // インテントから引き継ぎデータをまとめたもの(Bundleオブジェクト)を取得
         val extras = intent?.extras
-        // 名前, 居場所, ステータス, アイコンを表示させるTextView, ImageViewを取得し
-        // TextView, ImageViewに名前, 居場所, ステータス, アイコンを表示
+        // 名前, 居場所, ステータス, アイコン, ボタンを表示させるTextView, ImageView, Buttonを取得
         view.apply {
             findViewById<TextView>(R.id.tvFriendName).apply {
+                // TextViewに名前を表示
                 text = extras?.getString("name")
             }
             findViewById<TextView>(R.id.tvFriendLocation).apply {
+                // TextViewに居場所を表示
                 text = extras?.getString("location")
             }
             findViewById<TextView>(R.id.tvFriendStatus).apply {
+                // TextViewにステータスを表示
                 text = extras?.getString("status")
             }
             findViewById<ImageView>(R.id.ivFriendIcon).apply {
+                // ImageViewにアイコンを表示
                 setImageResource(extras?.getInt("icon", R.drawable.ic_baseline_mood_24)!!)
+            }
+            findViewById<Button>(R.id.btBackButton).apply {
+                // ボタンに押下時の処理を登録
+                setOnClickListener(ButtonClickListener())
             }
         }
         // actionbarとバックボタンを有効にする
@@ -58,7 +65,7 @@ class FriendDetailFragment : Fragment() {
         }
     }
 
-    // actionbarのバックボタンが押されたときの処理
+    // アクションバーのバックボタンが押されたときの処理
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             activity?.finish()
