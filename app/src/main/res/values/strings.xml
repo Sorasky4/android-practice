@@ -6,4 +6,11 @@
     <string name="status_busy">忙しい</string>
     <string name="status_offline">学内にいない</string>
     <string name="bt_friend_back">友人一覧に戻る</string>
+    <string name="navigation_title_map">map</string>
+    <string name="navigation_title_friends">friends</string>
+    <string name="navigation_title_settings">settings</string>
+    <string name="settings_status">ステータスを変更する</string>
+    <string name="settings_icon">アイコンを変更する</string>
+    <string name="settings_name">名前を変更する</string>
+    <string name="settings_hint">ユーザー設定</string>
 </resources>

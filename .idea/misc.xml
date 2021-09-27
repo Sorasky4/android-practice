@@ -15,13 +15,17 @@
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/drawable/ic_launcher_background.xml" value="0.4203125" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.4203125" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/activity_friend_detail.xml" value="0.2798913043478261" />
-        <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/activity_main.xml" value="0.19655521783181357" />
+        <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/activity_main.xml" value="0.176" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/fragment_fried_list.xml" value="0.31521739130434784" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/fragment_friend_datail.xml" value="0.1096757852077001" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/fragment_friend_detail.xml" value="0.2" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/fragment_friend_list.xml" value="0.31521739130434784" />
+        <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
+        <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/inline_list_item.xml" value="0.23072916666666668" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/inline_list_item_2.xml" value="0.264" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/list_item.xml" value="0.31521739130434784" />
+        <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/layout/settings_list_item.xml" value="0.4" />
+        <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/menu/menu_bottom_nav.xml" value="0.1" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/menu/menu_context_friend_list.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/menu/menu_options_menu_list.xml" value="0.4041666666666667" />
         <entry key="..\:/Users/shodai/Documents/Android/AndroidPractice/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.246875" />

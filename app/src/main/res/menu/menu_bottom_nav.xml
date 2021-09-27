@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_bottom_navi">
+
+    <item
+        android:id="@+id/mapFragment"
+        android:icon="@drawable/ic_baseline_person_pin_circle_24"
+        android:title="@string/navigation_title_map" />
+
+    <item
+        android:id="@id/friendListFragment"
+        android:icon="@drawable/ic_baseline_person_search_24"
+        android:title="@string/navigation_title_friends" />
+
+    <item
+        android:id="@id/settingsFragment"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/navigation_title_settings" />
+</menu>
