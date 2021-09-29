@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 
@@ -48,5 +49,23 @@ class SettingsFragment : Fragment() {
         setting = mutableMapOf("setting" to getString(R.string.settings_name), "myName" to "sora")
         settingList.add(setting)
         return settingList
+    }
+
+    private inner class ListItemClickListener: AdapterView.OnItemClickListener{
+        override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+            (parent.getItemAtPosition(position) as MutableMap<String, Any>).apply {
+                when(this["setting"]) {
+                    getString(R.string.settings_status) -> {
+                        //TODO:: write a process when tap "setting status"
+                    }
+                    getString(R.string.settings_name) -> {
+                        //TODO:: write a process when tap "setting name"
+                    }
+                    getString(R.string.settings_icon) -> {
+                        //TODO:: write a process when tap "setting icon"
+                    }
+                }
+            }
+        }
     }
 }
