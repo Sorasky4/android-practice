@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
+import androidx.navigation.fragment.findNavController
 
 class SettingsFragment : Fragment() {
     // SimpleAdapterで使用するMutableListオブジェクトを用意
@@ -37,7 +38,7 @@ class SettingsFragment : Fragment() {
         // アダプターの登録
         lvSettings.adapter = adapter
         // リストタップのリスナ登録
-        //lvSettings.onItemClickListener = ListItemClickListener()
+        lvSettings.onItemClickListener = ListItemClickListener()
     }
 
     private fun createFriendList(): MutableList<MutableMap<String, Any>> {
@@ -59,7 +60,7 @@ class SettingsFragment : Fragment() {
                         //TODO:: write a process when tap "setting status"
                     }
                     getString(R.string.settings_name) -> {
-                        //TODO:: write a process when tap "setting name"
+                        findNavController().navigate(R.id.action_settingsFragment_to_settingNameFragment)
                     }
                     getString(R.string.settings_icon) -> {
                         //TODO:: write a process when tap "setting icon"

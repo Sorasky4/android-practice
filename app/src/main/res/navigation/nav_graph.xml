@@ -13,5 +13,14 @@
         android:id="@+id/settingsFragment"
         android:name="com.websarva.wings.android.androidpractice.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_to_settingNameFragment"
+            app:destination="@id/settingNameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingNameFragment"
+        android:name="com.websarva.wings.android.androidpractice.SettingNameFragment"
+        android:label="fragment_setting_name"
+        tools:layout="@layout/fragment_setting_name" />
 </navigation>
