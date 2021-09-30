@@ -26,7 +26,7 @@ class SettingNameFragment : Fragment() {
         view.findViewById<Button>(R.id.btSaveName).apply {
             setOnClickListener{
                 val userName = view.findViewById<EditText>(R.id.etMyName).text.toString()
-                viewModel.userName.value = userName
+                viewModel.saveName(userName)
             }
         }
     }
