@@ -9,6 +9,7 @@ import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.SimpleAdapter
 import android.widget.TextView
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -68,7 +69,8 @@ class SettingsFragment : Fragment() {
             (parent.getItemAtPosition(position) as MutableMap<String, Any>).apply {
                 when(this["setting"]) {
                     getString(R.string.settings_status) -> {
-                        //TODO:: write a process when tap "setting status"
+                        val bottomSheet = ModalBottomSheetFragment()
+                        bottomSheet.show(childFragmentManager, ModalBottomSheetFragment.TAG)
                     }
                     getString(R.string.settings_name) -> {
                         findNavController().navigate(R.id.action_settingsFragment_to_settingNameFragment)

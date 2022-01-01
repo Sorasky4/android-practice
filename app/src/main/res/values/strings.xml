@@ -14,4 +14,6 @@
     <string name="settings_name">名前を変更する</string>
     <string name="settings_hint">ユーザー設定</string>
     <string name="decision">決定</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
