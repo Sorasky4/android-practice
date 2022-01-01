@@ -41,7 +41,7 @@ class FriendListFragment : Fragment() {
 
     private fun createFriendList(): MutableList<MutableMap<String, Any>> {
         val friendList: MutableList<MutableMap<String, Any>> = mutableListOf()
-        var friend: MutableMap<String, Any> = mutableMapOf("name" to "maki", "location" to "大講義室", "status" to getString(R.string.status_free), "icon" to R.drawable.maki_icon)
+        var friend: MutableMap<String, Any> = mutableMapOf("name" to "maki", "location" to "大講義室", "status" to getString(R.string.status_free))
         friendList.add(friend)
         friend = mutableMapOf("name" to "あみみ", "location" to "エレ工", "status" to getString(R.string.status_busy))
         friendList.add(friend)
